@@ -196,6 +196,26 @@ static NSString *const kDefaultOAuthClientSecret = @"particle";
     return task;
 }
 
+- (void)loginWithTokenInfo:(NSDictionary *)tokenInfo completion:(nullable SparkCompletionBlock)completion
+{
+    // TODO: refresh token behaviour
+    NSError *error;
+    self.token = [[SparkAccessToken alloc] initWithNewSession:tokenInfo];
+    if (self.token) // login was successful
+    {
+        self.token.delegate = self;
+    } else {
+        // TODO: Error code
+        error = [self makeErrorWithDescription:@"Failed to generate access token" code:1];
+    }
+    
+    if (completion)
+    {
+        completion(error);
+    }
+    
+}
+
 -(NSURLSessionDataTask *)signupWithUser:(NSString *)user password:(NSString *)password completion:(nullable SparkCompletionBlock)completion
 {
     

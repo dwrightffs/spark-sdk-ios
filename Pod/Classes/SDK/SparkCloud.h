@@ -63,6 +63,8 @@ extern NSString *const kSparkAPIBaseURL;
                               password:(NSString *)password
                             completion:(nullable SparkCompletionBlock)completion;
 
+- (void)loginWithAccessToken:(NSDictionary *)tokenInfo completion:(nullable SparkCompletionBlock)completion;
+
 /**
  *  Sign up with new account credentials to Spark cloud
  *
