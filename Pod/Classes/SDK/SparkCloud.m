@@ -196,7 +196,7 @@ static NSString *const kDefaultOAuthClientSecret = @"particle";
     return task;
 }
 
-- (void)loginWithTokenInfo:(NSDictionary *)tokenInfo completion:(nullable SparkCompletionBlock)completion
+- (void)loginWithAccessToken:(NSDictionary *)tokenInfo completion:(nullable SparkCompletionBlock)completion
 {
     // TODO: refresh token behaviour
     NSError *error;
